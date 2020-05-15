@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 import { shade } from 'polished'
 
 import singInBackgroundImg from '../../assets/sign-up-background.png'
@@ -19,9 +19,34 @@ export const Content = styled.div`
 
   width: 100%;
   max-width: 700px;
+`
+
+export const Background = styled.div`
+  flex: 1;
+  background: url(${singInBackgroundImg}) no-repeat center;
+  background-size: cover;
+`
+const appearFromLeft = keyframes`
+  from {
+    opacity: 0;
+    transform: rotateX(-80px);
+  }
+  to {
+    opacity: 1;
+    transform: rotateX(0);
+  }
+`
+
+export const AnimationContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  animation: ${appearFromLeft} 1s;
 
   form {
-    margin: 80px;
+    margin: 80px 0;
     width: 340px;
     text-align: center;
 
@@ -43,24 +68,18 @@ export const Content = styled.div`
   }
 
   > a {
-    color: #f4ede8;
+    color: #ff9000;
     display: block;
     margin-top: 24px;
     text-decoration: none;
     transition: color 0.2s;
 
     &:hover {
-      color: ${shade(0.2, '#f4ede8')};
+      color: ${shade(0.2, '#ff9000')};
     }
 
     svg {
       margin-right: 16px;
     }
   }
-`
-
-export const Background = styled.div`
-  flex: 1;
-  background: url(${singInBackgroundImg}) no-repeat center;
-  background-size: cover;
 `

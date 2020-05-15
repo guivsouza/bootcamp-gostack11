@@ -8,12 +8,11 @@ import { AppProvider } from './hooks'
 
 const App: React.FC = () => (
   <>
-    <AppProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <AppProvider>
         <Routes />
-      </BrowserRouter>
-    </AppProvider>
-
+      </AppProvider>
+    </BrowserRouter>
     <GlobalStyle />
   </>
 )
